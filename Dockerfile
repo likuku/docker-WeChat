@@ -34,6 +34,7 @@ RUN set -ex \
 
 RUN apk add curl
 RUN curl -s https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py -o /mnt/config.py
+VOLUME /mnt
 RUN touch /mnt/tgdata.db
 RUN ln -s /mnt/tgdata.db /opt/ehForwarderBot/plugins/eh_telegram_master/tgdata.db 
 WORKDIR /opt/ehForwarderBot
