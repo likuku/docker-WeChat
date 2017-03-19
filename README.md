@@ -15,7 +15,7 @@ Unofficial Docker image for [EH Forwarder Bot](https://github.com/blueset/ehForw
 ```
 cd
 mkdir -p ~/docker/efb
-curl -s https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py -o ~/efb/config.py
+curl -s https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py -o ~/docker/efb/config.py
 touch tgdata.db
 
 ```
