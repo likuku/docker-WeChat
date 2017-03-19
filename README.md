@@ -1,39 +1,33 @@
 Unofficial Docker image for [EH Forwarder Bot](https://github.com/blueset/ehForwarderBot). Maintained by [Roy Xiang](http://github.com/RoyXiang). Included all officialy maintained channels.
 
-# Supported tags and respective `Dockerfile` links
+这是 Fork 自 Royx 的一个 Telegram to 微信 Docker，以下是信用指南：
 
-* [![](https://images.microbadger.com/badges/version/royx/docker-efb.svg)](https://microbadger.com/images/royx/docker-efb "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/royx/docker-efb.svg)](https://microbadger.com/images/royx/docker-efb "Get your own image badge on microbadger.com") ([Dockerfile](https://github.com/RoyXiang/docker-EFB/blob/master/Dockerfile))
-* [![](https://images.microbadger.com/badges/version/royx/docker-efb:dev.svg)](https://microbadger.com/images/royx/docker-efb:dev "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/royx/docker-efb:dev.svg)](https://microbadger.com/images/royx/docker-efb:dev "Get your own image badge on microbadger.com") ([Dockerfile](https://github.com/RoyXiang/docker-EFB/blob/dev/Dockerfile))
+#建立自己的 config.py
 
-# Get Started
-
-Make sure you have `config.py` in the current working directory.
-
-If you use Telegram as your master channel and do not have a `tgdata.db` backuped. You need to create one first:
+我是在 VPS 上自己的 `~` 目录下新建了一个**efb** 目录来存放配置文件具体过程就是：
 
 ```
-$ touch tgdata.db
-```
-
-Then start a docker container by the following command:
-
-```
-$ docker run -d --restart=always \
-        --name=ehforwarderbot \
-        -v $(pwd)/config.py:/opt/ehForwarderBot/config.py \
-        -v $(pwd)/tgdata.db:/opt/ehForwarderBot/plugins/eh_telegram_master/tgdata.db \
-        royx/docker-efb
-```
-
-If an interactive process is needed for authentication (like WeChat), check it in docker logs:
+cd
+mkdir -p ~/docker/efb
+curl -s https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py -o ~/efb/config.py
+touch tgdata.db
 
 ```
-$ docker logs ehforwarderbot
+
+接下来就是修改你自己的 **config.py** 内容了，这个我帮不了你，等有空我再写写各参数的用途吧
+#启动你的微信机器人
+
+```
+docker run -d --restart=on-failure:15 -v ~/docker/efb:/mnt --name=wechat bao3/docker-efb:latest
 ```
 
-# Volumes
 
-* `/opt/ehForwarderBot/config.py` - the configuration file for [EH Forwarder Bot](https://github.com/blueset/ehForwarderBot)
-* `/opt/ehForwarderBot/plugins/eh_telegram_master/tgdata.db` - the file which holds the link information and message logs
+#扫码登录
+
+```
+$ docker logs -f wechat
+```
+
+
 
 [Official Documentation](https://ehforwarderbot.readthedocs.io)
