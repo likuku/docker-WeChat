@@ -33,7 +33,7 @@ RUN set -ex \
         && rm -rf /root/.cache
 #
 WORKDIR /mnt/
-RUN curl https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py -o config.py
+RUN curl -s https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py -o /mnt/config.py
 RUN touch /mnt/tgdata.db
 RUN ln -s /mnt/tgdata.db /opt/ehForwarderBot/plugins/eh_telegram_master/tgdata.db 
 WORKDIR /opt/ehForwarderBot
