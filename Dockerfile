@@ -37,5 +37,6 @@ RUN curl -s https://raw.githubusercontent.com/blueset/ehForwarderBot/master/conf
 VOLUME /mnt
 RUN touch /mnt/tgdata.db
 RUN ln -s /mnt/tgdata.db /opt/ehForwarderBot/plugins/eh_telegram_master/tgdata.db 
+RUN ln -s /mnt/config.py /opt/ehForwarderBot/config.py
 WORKDIR /opt/ehForwarderBot
 CMD ["python3", "main.py"]
