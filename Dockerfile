@@ -31,8 +31,8 @@ RUN set -ex \
         && apk del .fetch-deps \
         && pip3 install -r /opt/ehForwarderBot/requirements.txt \
         && rm -rf /root/.cache
-#
-WORKDIR /mnt/
+
+RUN apk add curl
 RUN curl -s https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py -o /mnt/config.py
 RUN touch /mnt/tgdata.db
 RUN ln -s /mnt/tgdata.db /opt/ehForwarderBot/plugins/eh_telegram_master/tgdata.db 
