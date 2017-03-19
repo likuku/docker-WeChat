@@ -25,12 +25,16 @@ RUN set -ex \
                 $(curl -s https://api.github.com/repos/blueset/ehForwarderBot/tags \
                     | grep tarball_url | head -n 1 | cut -d '"' -f 4) \
         && mkdir -p /opt/ehForwarderBot/storage \
+	&& chmod +rw /opt/ehForwarderBot/storage \
         && tar -xzf EFB-latest.tar.gz --strip-components=1 -C /opt/ehForwarderBot \
         && rm EFB-latest.tar.gz \
         && apk del .fetch-deps \
         && pip3 install -r /opt/ehForwarderBot/requirements.txt \
         && rm -rf /root/.cache
-
+#
+WORKDIR /mnt/
+RUN curl https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py -o config.py
+RUN touch /mnt/tgdata.db
+RUN ln -s /mnt/tgdata.db /opt/ehForwarderBot/plugins/eh_telegram_master/tgdata.db 
 WORKDIR /opt/ehForwarderBot
-
 CMD ["python3", "main.py"]
