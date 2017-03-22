@@ -14,8 +14,8 @@ Unofficial Docker image for [EH Forwarder Bot](https://github.com/blueset/ehForw
 
 ```
 cd
-mkdir -p ~/docker/efb
-curl -s https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py -o ~/docker/efb/config.py
+mkdir -p ~/docker/wechat
+curl -s https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py -o ~/docker/wechat/config.py
 touch tgdata.db
 
 ```
@@ -24,7 +24,9 @@ touch tgdata.db
 # 启动你的微信机器人
 
 ```
-docker run -d --restart=on-failure:15 -v ~/docker/efb:/mnt --name=wechat bao3/docker-efb:latest
+docker run -d --restart=on-failure:15 \
+           -v ~/docker/wechat:/mnt --name=wechat \
+           bao3/docker-WeChat:latest
 
 ```
 
