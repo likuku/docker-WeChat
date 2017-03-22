@@ -10,12 +10,14 @@ Unofficial Docker image for [EH Forwarder Bot](https://github.com/blueset/ehForw
 
 # 建立自己的 config.py
 
-我是在 VPS 上自己的 `~` 目录下新建了一个**efb** 目录来存放配置文件具体过程就是：
+我是在 VPS 上自己的 `~` 目录下新建了一个**wechat** 目录来存放配置文件具体过程就是：
 
 ```
 cd
 mkdir -p ~/docker/wechat
-curl -s https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py -o ~/docker/wechat/config.py
+curl -s https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py \
+           -o ~/docker/wechat/config.py
+           
 touch tgdata.db
 
 ```
@@ -36,7 +38,9 @@ docker run -d --restart=on-failure:15 \
 ```
 $ docker logs -f wechat
 ```
-
-
+# 备注
+1. 如果你像我一样，只是为了应付临时的客户而弄了微信小号，那么你应该**设备你的小号不需要确认即可加好友，但不可以通过手机号添加**，这样可以减少骚扰。另外，可以像我一样，限制为只可以扫码而不允许通过群来添加你为好友。
+2. 当你 Telegram 能接收微信后，请确定你创建一个 Group （需要你先拉一个实际的联系人，建好后再踢走），然后在邀请你的 Teleggram 机器人进入 Group 然后直接打 `/linke` ，把好友或者群给拉进来。这样你就可以在这个 Group里直接回复你的好友。
+3. 由于我是小号微信，所以人也不多，也没加群，但如果你的人比较多，就一定要把他们放到 Group 后设置为静音，否则会被烦死。
 
 [Official Documentation](https://ehforwarderbot.readthedocs.io)
