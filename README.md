@@ -18,7 +18,7 @@ mkdir -p ~/docker/wechat
 curl -s https://raw.githubusercontent.com/blueset/ehForwarderBot/master/config.sample.py \
            -o ~/docker/wechat/config.py
            
-touch tgdata.db
+touch ~/docker/wechat/tgdata.db
 
 ```
 
@@ -27,8 +27,8 @@ touch tgdata.db
 
 ```
 docker run -d --restart=on-failure:15 \
-           -v ~/docker/wechat:/mnt --name=wechat \
-           bao3/docker-WeChat:latest
+  -v ~/docker/wechat:/mnt --name=wechat \
+           bao3/docker-wechat:latest
 
 ```
 
