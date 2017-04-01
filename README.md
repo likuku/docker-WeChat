@@ -1,4 +1,4 @@
-Unofficial Docker image for [EH Forwarder Bot](https://github.com/blueset/ehForwarderBot). Maintained by [Roy Xiang](http://github.com/RoyXiang). Included all officialy maintained channels.
+ Unofficial Docker image for [EH Forwarder Bot](https://github.com/blueset/ehForwarderBot). Maintained by [Roy Xiang](http://github.com/RoyXiang). Included all officialy maintained channels.
 
 你是不是在使用微信时，有过这样的尴尬：1，你不想把的私人生活和工作都用同一个微信来聊；2，临时撩骚个人，又不想暴露私人信息；3，总有些时候，别人要临时加一下你的微信，弄个东西，但从此后这个要就再也不联系。
 
