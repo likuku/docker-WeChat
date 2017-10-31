@@ -1,5 +1,5 @@
 FROM alpine:edge
-MAINTAINER Roy Xiang <developer@royxiang.me>
+MAINTAINER bao3 <bao3.cn@gmail.com>
 
 ENV LANG C.UTF-8
 
